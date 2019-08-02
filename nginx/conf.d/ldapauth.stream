@@ -1,0 +1,20 @@
+        upstream ldap_backend {
+                server ldau-cor01.londonmet.ac.uk:389;
+                server ldau-cor02.londonmet.ac.uk:389;
+                server ldau-cor03.londonmet.ac.uk:389;
+                server ldau-cor04.londonmet.ac.uk:389;
+        }
+        server {
+                listen 389;
+                proxy_pass ldap_backend;
+        }
+        upstream ldaps_backend {
+                server ldau-cor01.londonmet.ac.uk:636;
+                server ldau-cor02.londonmet.ac.uk:636;
+                server ldau-cor03.londonmet.ac.uk:636;
+                server ldau-cor04.londonmet.ac.uk:636;
+        }
+        server {
+                listen 636;
+                proxy_pass ldaps_backend;
+        }

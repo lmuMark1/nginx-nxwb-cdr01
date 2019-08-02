@@ -1,0 +1,7 @@
+        upstream fpass {
+                server sdap-cor01.londonmetuni.ac.uk:443;
+        }
+        server {
+                listen 443;
+                proxy_pass fpass;
+        }
